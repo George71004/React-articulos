@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Home from './Home';
+import AgregarProducto from './AgregarProducto';
 
 const App = () => {
   const [selectedSection, setSelectedSection] = useState('home');
@@ -14,7 +15,8 @@ const App = () => {
     >
       <Sidebar onSelect={setSelectedSection} />
       <div className="flex-1 p-6">
-        {selectedSection === 'home' && <Home />}
+        {selectedSection === 'home' && <Home onSelect={setSelectedSection} />}
+        {selectedSection === 'agregar' && <AgregarProducto />}
         {/* Puedes agregar más secciones aquí */}
       </div>
     </div>
@@ -22,3 +24,4 @@ const App = () => {
 };
 
 export default App;
+
